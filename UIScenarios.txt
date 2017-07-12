@@ -1,0 +1,28 @@
+Feature: Testing Scenarios for UI Application
+
+  Scenario: New User Registration
+    Given I am on homepage
+    When I click "Register" link
+    Then I fill in the valid "FirstName"
+    Then I fill in the valid "LastName"
+    Then I fill in the valid "Email"
+    Then I fill in the valid "Password"
+    Then I fill in the valid "Confirm Password"
+    And I click "Register" button
+    Then I should see a Message on email conformation
+
+  Scenario: Existing User Login
+    Given I am on homepage
+    When I signin
+    Then I fill in the valid "Username"
+    Then I fill in the valid "Password"
+    And I click "signin" button
+    Then I should be successfully logged in
+
+  Scenario: Payment for the selected product
+    When I select a product
+    Then add to the product to the shopping cart
+    Then proceed to checkout
+    And I fill the details in shipping page
+    And I fill the details in Payment page
+    And I click "submit" button
